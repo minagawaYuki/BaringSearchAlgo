@@ -8,27 +8,27 @@ namespace AISearchSample
 {
     class Fringe:Fringes
     {
-        Stack<Node> stack;
-        Queue<Node> queue;
+        Stack<Node> dfs;
+        Queue<Node> bfs;
         public Fringe() 
         {
-            stack = new Stack<Node>();
-            queue = new Queue<Node>();
+            dfs = new Stack<Node>();
+            bfs = new Queue<Node>();
         }
         
         public void add(Node n,Node origin)
         {
             n.Origin = origin;
-            stack.Push(n);
-            queue.Enqueue(n);
+            dfs.Push(n);
+            bfs.Enqueue(n);
         }
 
         public Node remove()
         {
-            if (stack.Count != 0)
-                return stack.Pop();
-            if (queue.Count != 0)
-                return queue.Dequeue();
+            if (dfs.Count != 0)
+                return dfs.Pop();
+            if (bfs.Count != 0)
+                return bfs.Dequeue();
             return null;
         }
     }
